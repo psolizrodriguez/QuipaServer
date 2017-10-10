@@ -1,4 +1,7 @@
-# COMP 422 - Wireless/Mobile Softw Dev: Quipa
+# COMP 422 - Wireless/Mobile Softw Dev (Fall 2017)
+## Project Name
+Quipa : Future Good Decisions
+
 ## Team Members
 - Catherine Litten
 - Pinky Sindhu
@@ -8,7 +11,7 @@
 ## Description
 QUIPA App will allow people to help people categorized as NEET to create a virtual profile in a couple of simple steps. This profile will focus on the contact information and skills of the prospect (person having a virtual profile), therefore increasing their chances of getting a job and increasing their reputation and ranking with in the local market.
 
-## Import Git Project in eclipse
+## Import Project in Eclipse
 1) Create directory "QuipaServer" inside of your workspace  
 2) Execute the following code inside of that directory once Git is installed in your machine: 
 ```
@@ -18,9 +21,6 @@ git pull QuipaServer master
 ```
 3) Create a Dynamic Web with tomcat 9 as container on eclipse using that path  
 4) The class **com.quipa.common.controllers.MainController** has the code to test and insert all the dummy data
-  
-## Main Controller with Dummy Data
-[MainController.java](./src/com/quipa/common/controllers/MainController.java)
 
 ## Data Base Connection Details
 **Host:** 18.220.231.8  
