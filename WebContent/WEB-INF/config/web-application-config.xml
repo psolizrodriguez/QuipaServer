@@ -16,23 +16,9 @@
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 	
 	<import resource="classpath:dao-context.xml" />
-	
-<!-- 	<mvc:annotation-driven />
-	<mvc:resources location="/WEB-INF/styles/" mapping="/styles/**" />
-	<mvc:resources location="/WEB-INF/images/" mapping="/images/**" />
-	<mvc:resources location="/WEB-INF/scripts/" mapping="/scripts/**" />
-	<mvc:resources location="/WEB-INF/jquery-ui-1.8.16.custom/" mapping="/jquery-ui-1.8.16.custom/**" />
-	<mvc:resources location="/WEB-INF/jqwidgets/" mapping="/jqwidgets/**" /> -->
 		
 	<context:annotation-config />
-	<context:component-scan base-package="com.ebook" />
-
-	<!--<bean id="jspViewResolver"
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
-		<property name="prefix" value="/WEB-INF/jsp/" />
-		<property name="suffix" value=".jsp" />
-	</bean>-->
+	<context:component-scan base-package="com.quipa" />
 
 	<bean  id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
 		<property name="basenames">

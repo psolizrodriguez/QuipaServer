@@ -20,7 +20,7 @@ public class ProspectDaoImpl extends AbstractBaseDao implements ProspectDao {
 	}
 
 	public List<Prospect> listAll() {
-		return super.verifyListNamedQueryAll("com.ebook.dao.prospect.impl.ProspectDaoImpl.listAll");
+		return super.verifyListNamedQueryAll("com.quipa.dao.profile.impl.ProspectDaoImpl.listAll");
 	}
 
 	@Transactional
@@ -31,6 +31,6 @@ public class ProspectDaoImpl extends AbstractBaseDao implements ProspectDao {
 
 	@Override
 	public Prospect getById(String prospectId) {
-		return super.verifyNamedQueryAll("com.ebook.dao.prospect.impl.ProspectDaoImpl.getById", prospectId);
+		return super.verifyNamedQueryAll("com.quipa.dao.profile.impl.ProspectDaoImpl.getById", prospectId);
 	}
 }
