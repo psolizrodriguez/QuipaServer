@@ -34,13 +34,13 @@ git pull QuipaServer master
 ## Entity Relationship Diagram
 ![Quipa_ERD](https://i.imgur.com/WL64gh4.png)
 
-#DEV Week
-##Pinky
+# DEV Week
+## Pinky
 ![Imgur](https://i.imgur.com/kTLy1BR.png)
 ![Imgur](https://i.imgur.com/zHO4dxp.png)
 ![Imgur](https://i.imgur.com/kLH7cL0.png)
-##Crish
+## Crish
 ![Imgur](https://i.imgur.com/tm6aQOR.png)
 ![Imgur](https://i.imgur.com/gKsVfYM.png)
-##Catherine
+## Catherine
 ![Imgur](https://i.imgur.com/W0ti6OR.png)
