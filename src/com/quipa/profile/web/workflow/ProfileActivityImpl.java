@@ -7,8 +7,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.quipa.common.constants.AppBaseConstantsWeb;
+import com.quipa.common.utility.AppBaseUtilsWeb;
 import com.quipa.model.profile.Profile;
 import com.quipa.profile.web.representation.ProfileRepresentation;
+import com.quipa.profile.web.representation.ProfileRequest;
 import com.quipa.service.profile.ProfileService;
 
 @Service
@@ -29,5 +32,15 @@ public class ProfileActivityImpl implements ProfileActivity {
 			profileRepresentations.add(new ProfileRepresentation(profile));
 		}
 		return profileRepresentations;
+	}
+
+	public ProfileRepresentation createProfile(ProfileRequest profileRequest) {
+		Profile profile = new Profile(null, profileRequest.getName(), profileRequest.getDescription(),
+				profileRequest.getProfilePicture(), profileRequest.getEmail(), profileRequest.getPassword(),
+				profileRequest.getMobilePhoneNumber(), AppBaseConstantsWeb.PROFILE_STATUS_PENDING,
+				profileRequest.getLatitude(), profileRequest.getLongitude(), AppBaseConstantsWeb.PROFILE_PRICEXHOUR_01,
+				AppBaseConstantsWeb.PROFILE_CATEGORY_01, profileRequest.getSkills(), AppBaseUtilsWeb.getCurrentTime());
+		profile = profileService.save(profile);
+		return new ProfileRepresentation(profile);
 	}
 }

@@ -22,20 +22,6 @@ public class Review {
 	private String status;
 	@Temporal(TemporalType.TIMESTAMP)
 	private Calendar createdDate;
-
-	public Review() {
-	}
-
-	public Review(String title, String description, Integer rating, String status, Calendar createdDate,
-			Request request) {
-		this.title = title;
-		this.description = description;
-		this.rating = rating;
-		this.status = status;
-		this.createdDate = createdDate;
-		this.request = request;
-	}
-
 	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn
 	private Request request;

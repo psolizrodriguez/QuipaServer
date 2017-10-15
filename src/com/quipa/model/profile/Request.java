@@ -2,6 +2,7 @@ package com.quipa.model.profile;
 
 import java.util.Calendar;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -22,32 +23,33 @@ public class Request {
 	private String toHour;
 	private Double hours;
 	private Double priceHour;
-	private Double subtotal;
+	private Double subTotal;
 	private Double taxes;
 	private Double transportation;
 	private Double total;
 	private String jobTitle;
 	private String description;
 	private String status;
-	@OneToOne(fetch = FetchType.EAGER)
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn
 	private Profile profile;
-	@OneToOne(fetch = FetchType.EAGER)
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn
-	private Address location;
+	private Profile prospect;
 
 	public Request() {
 	}
 
-	public Request(Calendar date, String fromHour, String toHour, Double hours, Double priceHour, Double subtotal, Double taxes,
-			Double transportation, Double total, String jobTitle, String description, String status, Profile profile,
-			Address location) {
+	public Request(Long requestId, Calendar date, String fromHour, String toHour, Double hours, Double priceHour,
+			Double subTotal, Double taxes, Double transportation, Double total, String jobTitle, String description,
+			String status, Profile profile, Profile prospect) {
+		this.requestId = requestId;
 		this.date = date;
 		this.fromHour = fromHour;
 		this.toHour = toHour;
 		this.hours = hours;
 		this.priceHour = priceHour;
-		this.subtotal = subtotal;
+		this.subTotal = subTotal;
 		this.taxes = taxes;
 		this.transportation = transportation;
 		this.total = total;
@@ -55,11 +57,15 @@ public class Request {
 		this.description = description;
 		this.status = status;
 		this.profile = profile;
-		this.location = location;
+		this.prospect = prospect;
 	}
 
 	public Long getRequestId() {
 		return requestId;
+	}
+
+	public void setRequestId(Long requestId) {
+		this.requestId = requestId;
 	}
 
 	public Calendar getDate() {
@@ -70,19 +76,19 @@ public class Request {
 		this.date = date;
 	}
 
-	public String getFrom() {
+	public String getFromHour() {
 		return fromHour;
 	}
 
-	public void setFrom(String fromHour) {
+	public void setFromHour(String fromHour) {
 		this.fromHour = fromHour;
 	}
 
-	public String getTo() {
+	public String getToHour() {
 		return toHour;
 	}
 
-	public void setTo(String toHour) {
+	public void setToHour(String toHour) {
 		this.toHour = toHour;
 	}
 
@@ -102,12 +108,12 @@ public class Request {
 		this.priceHour = priceHour;
 	}
 
-	public Double getSubtotal() {
-		return subtotal;
+	public Double getSubTotal() {
+		return subTotal;
 	}
 
-	public void setSubtotal(Double subtotal) {
-		this.subtotal = subtotal;
+	public void setSubTotal(Double subTotal) {
+		this.subTotal = subTotal;
 	}
 
 	public Double getTaxes() {
@@ -166,16 +172,12 @@ public class Request {
 		this.profile = profile;
 	}
 
-	public Address getLocation() {
-		return location;
+	public Profile getProspect() {
+		return prospect;
 	}
 
-	public void setLocation(Address location) {
-		this.location = location;
-	}
-
-	public void setRequestId(Long requestId) {
-		this.requestId = requestId;
+	public void setProspect(Profile prospect) {
+		this.prospect = prospect;
 	}
 
 }

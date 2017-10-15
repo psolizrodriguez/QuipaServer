@@ -6,21 +6,36 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.quipa.common.constants.AppBaseConstantsWeb;
 import com.quipa.common.utility.AppBaseUtilsWeb;
 import com.quipa.model.profile.Profile;
+import com.quipa.model.profile.Request;
 import com.quipa.service.profile.ProfileService;
+import com.quipa.service.profile.RequestService;
 
 @Controller
 public class MainController {
 	@Autowired
 	private ProfileService profileService;
+	@Autowired
+	private RequestService requestService;
 
 	@RequestMapping("/index")
 	public String index(HttpServletRequest request) {
-		Profile profile = new Profile("Soliz", "Percy", "Software Engineer living in Chicago", "",
-				"percy.soliz.rodriguez@gmail.com", "test1234", "123-123-1234", "Verified",
+		Profile profile = new Profile(Long.valueOf(1), "Percy Soliz", "Software Engineer living in Chicago", "",
+				"percy.soliz@gmail.com", "test1234", "333-333-3333", "Pending", 1000.0, 2000.0, 0.0, "", "",
 				AppBaseUtilsWeb.getCurrentTime());
-		profileService.save(profile);
+		profile = profileService.save(profile);
+		Profile prospect = new Profile(Long.valueOf(2), "Kelly Blackwell", "Mechanic living in Chicago", "",
+				"kelly.blackwell@gmail.com", "test1234", "222-222-3333", "Verified", 1000.0, 2000.0, 25.0, "Master",
+				"1,2,3,4", AppBaseUtilsWeb.getCurrentTime());
+		prospect = profileService.save(prospect);
+		Request workRequest = new Request(Long.valueOf(1),
+				AppBaseUtilsWeb.StringToCalendar("12/12/2017", AppBaseConstantsWeb.DATE_FORMAT), "15:00", "17:00", 2.0,
+				25.0, 50.0, 5.0, 15.0, 70.0, "Mechanic", "Nissan Z350 needs an oil change", "Pending", profile,
+				prospect);
+		workRequest = requestService.save(workRequest);
+		System.out.println("Kelly Blackwell Id = " + prospect.getProfileId());
 		return "index";
 	}
 

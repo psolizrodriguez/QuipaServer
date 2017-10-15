@@ -5,41 +5,48 @@ import java.util.Calendar;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
 public class Profile {
 	@Id
 	@GeneratedValue
 	private Long profileId;
-	private String lastName;
-	private String firstName;
+	private String name;
 	private String description;
-	private String profilePicUrl;
+	private String profilePicture;
 	private String email;
 	private String password;
 	private String mobilePhoneNumber;
 	private String status;
+	private Double latitude;
+	private Double longitude;
+	private Double priceHour;
+	private String category;
+	private String skills;
 	@Temporal(TemporalType.TIMESTAMP)
 	private Calendar createdDate;
 
 	public Profile() {
 	}
 
-	public Profile(String lastName, String firstName, String description, String profilePicUrl, String email,
-			String password, String mobilePhoneNumber, String status, Calendar createdDate) {
-		this.lastName = lastName;
-		this.firstName = firstName;
+	public Profile(Long profileId, String name, String description, String profilePicture, String email,
+			String password, String mobilePhoneNumber, String status, Double latitude, Double longitude, Double priceHour,
+			String category, String skills, Calendar createdDate) {
+		this.profileId = profileId;
+		this.name = name;
 		this.description = description;
-		this.profilePicUrl = profilePicUrl;
+		this.profilePicture = profilePicture;
 		this.email = email;
 		this.password = password;
 		this.mobilePhoneNumber = mobilePhoneNumber;
 		this.status = status;
+		this.latitude = latitude;
+		this.longitude = longitude;
+		this.priceHour = priceHour;
+		this.category = category;
+		this.skills = skills;
 		this.createdDate = createdDate;
 	}
 
@@ -51,20 +58,12 @@ public class Profile {
 		this.profileId = profileId;
 	}
 
-	public String getLastName() {
-		return lastName;
+	public String getName() {
+		return name;
 	}
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getDescription() {
@@ -75,12 +74,12 @@ public class Profile {
 		this.description = description;
 	}
 
-	public String getProfilePicUrl() {
-		return profilePicUrl;
+	public String getProfilePicture() {
+		return profilePicture;
 	}
 
-	public void setProfilePicUrl(String profilePicUrl) {
-		this.profilePicUrl = profilePicUrl;
+	public void setProfilePicture(String profilePicture) {
+		this.profilePicture = profilePicture;
 	}
 
 	public String getEmail() {
@@ -113,6 +112,46 @@ public class Profile {
 
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+	public Double getLatitude() {
+		return latitude;
+	}
+
+	public void setLatitude(Double latitude) {
+		this.latitude = latitude;
+	}
+
+	public Double getLongitude() {
+		return longitude;
+	}
+
+	public void setLongitude(Double longitude) {
+		this.longitude = longitude;
+	}
+
+	public Double getPriceHour() {
+		return priceHour;
+	}
+
+	public void setPriceHour(Double priceHour) {
+		this.priceHour = priceHour;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
+	public String getSkills() {
+		return skills;
+	}
+
+	public void setSkills(String skills) {
+		this.skills = skills;
 	}
 
 	public Calendar getCreatedDate() {

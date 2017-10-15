@@ -24,6 +24,7 @@
 
 		<jaxrs:schemaLocations>
 			<jaxrs:schemaLocation>com.quipa.profile.web.representation.ProfileRepresentation</jaxrs:schemaLocation>
+			<jaxrs:schemaLocation>com.quipa.profile.web.representation.ProfileRequest</jaxrs:schemaLocation>
 		</jaxrs:schemaLocations>
 
 	</jaxrs:server>
