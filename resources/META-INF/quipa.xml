@@ -6,4 +6,8 @@
 		name="com.quipa.dao.profile.impl.ProfileDaoImpl.listAll">
 		<![CDATA[FROM Profile]]>
 	</query>
+	<query
+		name="com.quipa.dao.profile.impl.ProfileDaoImpl.getById">
+		<![CDATA[FROM Profile WHERE profileId=?1]]>
+	</query>
 </hibernate-mapping>

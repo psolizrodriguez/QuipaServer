@@ -28,6 +28,10 @@ public class BaseFilter implements Filter {
 		LOG.info("req.getServletPath():: " + req.getServletPath());
 		resp.setHeader("Cache-Control", "no-cache, no-store,must-revalidate");
 		resp.setHeader("Pragma", "no-cache");
+		resp.addHeader("Access-Control-Allow-Headers", "origin, content-type, accept, x-requested-with, my-cool-header");
+		resp.addHeader("Access-Control-Max-Age", "60"); // seconds to cache preflight request --> less OPTIONS traffic
+		resp.addHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+		resp.addHeader("Access-Control-Allow-Origin", "*");
 		resp.setDateHeader("Expires", 0);
 		System.out.println(req.getServletPath());
 		if (req.getServletPath().equalsIgnoreCase("/registerWithGSTIN.html")) {

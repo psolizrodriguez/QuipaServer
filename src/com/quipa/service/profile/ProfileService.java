@@ -9,7 +9,7 @@ public interface ProfileService {
 
 	public List<Profile> listAll();
 
-	public Profile getById(String profileId);
+	public Profile getById(Long profileId);
 
 	public boolean remove(Profile profile);
 }

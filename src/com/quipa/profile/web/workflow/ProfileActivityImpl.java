@@ -43,4 +43,9 @@ public class ProfileActivityImpl implements ProfileActivity {
 		profile = profileService.save(profile);
 		return new ProfileRepresentation(profile);
 	}
+
+	public ProfileRepresentation getProfile(Long profileId) {
+		return new ProfileRepresentation(profileService.getById(profileId));
+	}
+
 }

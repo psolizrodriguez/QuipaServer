@@ -10,7 +10,7 @@ public interface ProfileDao extends Dao {
 
 	public List<Profile> listAll();
 
-	public Profile getById(String profileId);
+	public Profile getById(Long profileId);
 
 	public boolean remove(Profile profile);
 }

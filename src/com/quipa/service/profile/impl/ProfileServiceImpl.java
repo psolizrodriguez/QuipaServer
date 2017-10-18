@@ -26,7 +26,7 @@ public class ProfileServiceImpl implements ProfileService {
 	}
 
 	@Override
-	public Profile getById(String profileId) {
+	public Profile getById(Long profileId) {
 		return dao.getById(profileId);
 	}
 

@@ -30,7 +30,7 @@ public class ProfileDaoImpl extends AbstractBaseDao implements ProfileDao {
 	}
 
 	@Override
-	public Profile getById(String prospectId) {
-		return super.verifyNamedQueryAll("com.quipa.dao.profile.impl.ProfileDaoImpl.getById", prospectId);
+	public Profile getById(Long profileId) {
+		return super.verifyNamedQueryAll("com.quipa.dao.profile.impl.ProfileDaoImpl.getById", profileId);
 	}
 }
