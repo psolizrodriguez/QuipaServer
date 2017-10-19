@@ -1,24 +1,15 @@
-package com.quipa.model.profile;
+package com.quipa.profile.web.representation;
 
-import java.util.Calendar;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-
-@Entity
-public class Request {
-	@Id
-	@GeneratedValue
-	private Long requestId;
-	@Temporal(TemporalType.TIMESTAMP)
-	private Calendar date;
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "")
+public class RequestRequest {
+	private String date;
 	private String fromHour;
 	private String toHour;
 	private Double hours;
@@ -30,21 +21,15 @@ public class Request {
 	private String requiredSkill;
 	private String jobTitle;
 	private String description;
-	private String status;
-	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinColumn
-	private Profile profile;
-	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinColumn
-	private Profile prospect;
+	private Long profileId;
+	private Long prospectId;
 
-	public Request() {
+	public RequestRequest() {
 	}
 
-	public Request(Long requestId, Calendar date, String fromHour, String toHour, Double hours, Double priceHour,
-			Double subTotal, Double taxes, Double transportation, Double total, String requiredSkill, String jobTitle,
-			String description, String status, Profile profile, Profile prospect) {
-		this.requestId = requestId;
+	public RequestRequest(String date, String fromHour, String toHour, Double hours, Double priceHour, Double subTotal,
+			Double taxes, Double transportation, Double total, String requiredSkill, String jobTitle,
+			String description, Long profileId, Long prospectId) {
 		this.date = date;
 		this.fromHour = fromHour;
 		this.toHour = toHour;
@@ -57,24 +42,15 @@ public class Request {
 		this.requiredSkill = requiredSkill;
 		this.jobTitle = jobTitle;
 		this.description = description;
-		this.status = status;
-		this.profile = profile;
-		this.prospect = prospect;
+		this.profileId = profileId;
+		this.prospectId = prospectId;
 	}
 
-	public Long getRequestId() {
-		return requestId;
-	}
-
-	public void setRequestId(Long requestId) {
-		this.requestId = requestId;
-	}
-
-	public Calendar getDate() {
+	public String getDate() {
 		return date;
 	}
 
-	public void setDate(Calendar date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 
@@ -166,28 +142,20 @@ public class Request {
 		this.description = description;
 	}
 
-	public String getStatus() {
-		return status;
+	public Long getProfileId() {
+		return profileId;
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
+	public void setProfileId(Long profileId) {
+		this.profileId = profileId;
 	}
 
-	public Profile getProfile() {
-		return profile;
+	public Long getProspectId() {
+		return prospectId;
 	}
 
-	public void setProfile(Profile profile) {
-		this.profile = profile;
-	}
-
-	public Profile getProspect() {
-		return prospect;
-	}
-
-	public void setProspect(Profile prospect) {
-		this.prospect = prospect;
+	public void setProspectId(Long prospectId) {
+		this.prospectId = prospectId;
 	}
 
 }

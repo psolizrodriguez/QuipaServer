@@ -19,8 +19,8 @@ public class RequestDaoImpl extends AbstractBaseDao implements RequestDao {
 		return (Request) super.store(request);
 	}
 
-	public List<Request> listAll() {
-		return super.verifyListNamedQueryAll("com.quipa.dao.request.impl.RequestDaoImpl.listAll");
+	public List<Request> listAll(Long profileId) {
+		return super.verifyListNamedQueryAll("com.quipa.dao.profile.impl.RequestDaoImpl.listAll", profileId);
 	}
 
 	@Transactional
@@ -30,7 +30,7 @@ public class RequestDaoImpl extends AbstractBaseDao implements RequestDao {
 	}
 
 	@Override
-	public Request getById(String prospectId) {
-		return super.verifyNamedQueryAll("com.quipa.dao.request.impl.RequestDaoImpl.getById", prospectId);
+	public Request getById(Long prospectId) {
+		return super.verifyNamedQueryAll("com.quipa.dao.profile.impl.RequestDaoImpl.getById", prospectId);
 	}
 }

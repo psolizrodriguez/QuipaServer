@@ -1,24 +1,20 @@
-package com.quipa.model.profile;
+package com.quipa.profile.web.representation;
 
-import java.util.Calendar;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import com.quipa.common.constants.AppBaseConstantsWeb;
+import com.quipa.common.utility.AppBaseUtilsWeb;
+import com.quipa.model.profile.Request;
 
-@Entity
-public class Request {
-	@Id
-	@GeneratedValue
+@XmlRootElement(name = "Request")
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "")
+public class RequestRepresentation {
 	private Long requestId;
-	@Temporal(TemporalType.TIMESTAMP)
-	private Calendar date;
+	private String date;
 	private String fromHour;
 	private String toHour;
 	private Double hours;
@@ -31,35 +27,29 @@ public class Request {
 	private String jobTitle;
 	private String description;
 	private String status;
-	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinColumn
-	private Profile profile;
-	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinColumn
-	private Profile prospect;
+	private Long profileId;
+	private Long prospectId;
 
-	public Request() {
+	public RequestRepresentation() {
 	}
 
-	public Request(Long requestId, Calendar date, String fromHour, String toHour, Double hours, Double priceHour,
-			Double subTotal, Double taxes, Double transportation, Double total, String requiredSkill, String jobTitle,
-			String description, String status, Profile profile, Profile prospect) {
-		this.requestId = requestId;
-		this.date = date;
-		this.fromHour = fromHour;
-		this.toHour = toHour;
-		this.hours = hours;
-		this.priceHour = priceHour;
-		this.subTotal = subTotal;
-		this.taxes = taxes;
-		this.transportation = transportation;
-		this.total = total;
-		this.requiredSkill = requiredSkill;
-		this.jobTitle = jobTitle;
-		this.description = description;
-		this.status = status;
-		this.profile = profile;
-		this.prospect = prospect;
+	public RequestRepresentation(Request request) {
+		this.requestId = request.getRequestId();
+		this.date = AppBaseUtilsWeb.CalendarToString(request.getDate(), AppBaseConstantsWeb.DATE_FORMAT);
+		this.fromHour = request.getFromHour();
+		this.toHour = request.getToHour();
+		this.hours = request.getHours();
+		this.priceHour = request.getPriceHour();
+		this.subTotal = request.getSubTotal();
+		this.taxes = request.getTaxes();
+		this.transportation = request.getTransportation();
+		this.total = request.getTotal();
+		this.requiredSkill = request.getRequiredSkill();
+		this.jobTitle = request.getJobTitle();
+		this.description = request.getDescription();
+		this.status = request.getStatus();
+		this.profileId = request.getProfile().getProfileId();
+		this.prospectId = request.getProspect().getProfileId();
 	}
 
 	public Long getRequestId() {
@@ -70,11 +60,11 @@ public class Request {
 		this.requestId = requestId;
 	}
 
-	public Calendar getDate() {
+	public String getDate() {
 		return date;
 	}
 
-	public void setDate(Calendar date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 
@@ -174,20 +164,20 @@ public class Request {
 		this.status = status;
 	}
 
-	public Profile getProfile() {
-		return profile;
+	public Long getProfileId() {
+		return profileId;
 	}
 
-	public void setProfile(Profile profile) {
-		this.profile = profile;
+	public void setProfileId(Long profileId) {
+		this.profileId = profileId;
 	}
 
-	public Profile getProspect() {
-		return prospect;
+	public Long getProspectId() {
+		return prospectId;
 	}
 
-	public void setProspect(Profile prospect) {
-		this.prospect = prospect;
+	public void setProspectId(Long prospectId) {
+		this.prospectId = prospectId;
 	}
 
 }

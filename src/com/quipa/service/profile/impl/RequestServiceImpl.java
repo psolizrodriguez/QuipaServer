@@ -20,13 +20,12 @@ public class RequestServiceImpl implements RequestService {
 	}
 
 	@Override
-	public List<Request> listAll() {
-		System.out.println("Entra Dao");
-		return dao.listAll();
+	public List<Request> listAll(Long profileId) {
+		return dao.listAll(profileId);
 	}
 
 	@Override
-	public Request getById(String requestId) {
+	public Request getById(Long requestId) {
 		return dao.getById(requestId);
 	}
 

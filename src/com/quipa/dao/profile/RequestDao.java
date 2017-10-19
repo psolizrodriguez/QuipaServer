@@ -8,9 +8,9 @@ import com.quipa.model.profile.Request;
 public interface RequestDao extends Dao {
 	public Request save(Request request);
 
-	public List<Request> listAll();
+	public List<Request> listAll(Long profileId);
 
-	public Request getById(String requestId);
+	public Request getById(Long requestId);
 
 	public boolean remove(Request request);
 }

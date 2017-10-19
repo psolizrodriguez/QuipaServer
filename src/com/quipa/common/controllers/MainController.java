@@ -32,7 +32,7 @@ public class MainController {
 		prospect = profileService.save(prospect);
 		Request workRequest = new Request(Long.valueOf(1),
 				AppBaseUtilsWeb.StringToCalendar("12/12/2017", AppBaseConstantsWeb.DATE_FORMAT), "15:00", "17:00", 2.0,
-				25.0, 50.0, 5.0, 15.0, 70.0, "Mechanic", "Nissan Z350 needs an oil change", "Pending", profile,
+				25.0, 50.0, 5.0, 15.0, 70.0,"[1]", "Mechanic", "Nissan Z350 needs an oil change", "Pending", profile,
 				prospect);
 		workRequest = requestService.save(workRequest);
 		System.out.println("Kelly Blackwell Id = " + prospect.getProfileId());

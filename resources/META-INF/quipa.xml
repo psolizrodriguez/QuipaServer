@@ -10,4 +10,12 @@
 		name="com.quipa.dao.profile.impl.ProfileDaoImpl.getById">
 		<![CDATA[FROM Profile WHERE profileId=?1]]>
 	</query>
+	<query
+		name="com.quipa.dao.profile.impl.RequestDaoImpl.listAll">
+		<![CDATA[FROM Request WHERE profile.profileId=?1]]>
+	</query>
+	<query
+		name="com.quipa.dao.profile.impl.RequestDaoImpl.getById">
+		<![CDATA[FROM Request WHERE requestId=?1]]>
+	</query>
 </hibernate-mapping>
