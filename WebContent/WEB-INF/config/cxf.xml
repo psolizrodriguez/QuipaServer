@@ -18,6 +18,7 @@
 		<jaxrs:serviceBeans>
 			<ref bean="profileServiceRest" />
 			<ref bean="requestServiceRest" />
+			<ref bean="messageServiceRest" />
 		</jaxrs:serviceBeans>
 		<jaxrs:providers>
 			<ref bean="jacksonProvider" />
@@ -28,10 +29,13 @@
 			<jaxrs:schemaLocation>com.quipa.profile.web.representation.ProfileRequest</jaxrs:schemaLocation>
 			<jaxrs:schemaLocation>com.quipa.profile.web.representation.RequestRepresentation</jaxrs:schemaLocation>
 			<jaxrs:schemaLocation>com.quipa.profile.web.representation.RequestRequest</jaxrs:schemaLocation>
+			<jaxrs:schemaLocation>jaxrs:schemaLocation>com.quipa.profile.web.representation.MessageRepresentation</jaxrs:schemaLocation>
+			<jaxrs:schemaLocation>com.quipa.profile.web.representation.MessageRequest</jaxrs:schemaLocation>
 		</jaxrs:schemaLocations>
 
 	</jaxrs:server>
   	<bean id="profileServiceRest" class="com.quipa.profile.web.service.ProfileResource" />
   	<bean id="requestServiceRest" class="com.quipa.profile.web.service.RequestResource" />
+  	<bean id="messageServiceRest" class="com.quipa.profile.web.service.MessageResource" />
   
 </beans>

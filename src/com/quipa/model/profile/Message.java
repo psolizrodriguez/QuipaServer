@@ -29,8 +29,8 @@ public class Message {
 	public Message() {
 	}
 
-	public Message(String content, Calendar createdDate, Request request, Profile profile) {
-
+	public Message(Long messageId, String content, Calendar createdDate, Request request, Profile profile) {
+		this.messageId = messageId;
 		this.content = content;
 		this.createdDate = createdDate;
 		this.request = request;

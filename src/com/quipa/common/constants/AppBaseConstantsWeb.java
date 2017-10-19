@@ -4,7 +4,8 @@ public class AppBaseConstantsWeb {
 	// Application Constants
 	public static int BYTES_FOR_ENCRIPTION = 512;
 	public static String KEY_FOR_ENCRIPTION = "EBookStore";
-	public static String DATE_FORMAT = "mm/dd/yy";
+	public static String DATE_FORMAT = "MM/dd/yy";
+	public static String DATETIME_FORMAT = "MM/dd/yy HH:mm";
 	// PROFILE STATUS
 	public static final String PROFILE_STATUS_PENDING = "Pending";
 	public static final String PROFILE_STATUS_VERIFIED = "Verified";

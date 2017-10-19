@@ -18,4 +18,12 @@
 		name="com.quipa.dao.profile.impl.RequestDaoImpl.getById">
 		<![CDATA[FROM Request WHERE requestId=?1]]>
 	</query>
+		<query
+		name="com.quipa.dao.profile.impl.MessageDaoImpl.listAll">
+		<![CDATA[FROM Message WHERE request.requestId=?1]]>
+	</query>
+	<query
+		name="com.quipa.dao.profile.impl.MessageDaoImpl.getById">
+		<![CDATA[FROM Message WHERE messageId=?1]]>
+	</query>
 </hibernate-mapping>
