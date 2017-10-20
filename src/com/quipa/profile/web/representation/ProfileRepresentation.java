@@ -37,7 +37,7 @@ public class ProfileRepresentation {
 		this.profileId = profile.getProfileId();
 		this.name = profile.getName();
 		this.description = profile.getDescription();
-		this.profilePicture = profile.getProfilePicture();
+		this.profilePicture = "http://" + AppBaseConstantsWeb.SERVER_URL + ":8080/QuipaServer/viewProfilePicture.html?profileId=" + profile.getProfileId();
 		this.email = profile.getEmail();
 		this.password = profile.getPassword();
 		this.mobilePhoneNumber = profile.getMobilePhoneNumber();

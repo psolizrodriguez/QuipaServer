@@ -6,6 +6,12 @@ public class AppBaseConstantsWeb {
 	public static String KEY_FOR_ENCRIPTION = "EBookStore";
 	public static String DATE_FORMAT = "MM/dd/yy";
 	public static String DATETIME_FORMAT = "MM/dd/yy HH:mm";
+	public static String SYSTEM_SEPARATOR = System.getProperty("file.separator");
+	public static String IMAGES_PATH = SYSTEM_SEPARATOR + "opt" + SYSTEM_SEPARATOR + "img" + SYSTEM_SEPARATOR;
+	public static String PROFILE_PICTURE_EXTENSION = ".png";
+	public static String SERVER_URL = "18.220.231.8";
+	
+	
 	// PROFILE STATUS
 	public static final String PROFILE_STATUS_PENDING = "Pending";
 	public static final String PROFILE_STATUS_VERIFIED = "Verified";

@@ -35,12 +35,16 @@ public class ProfileActivityImpl implements ProfileActivity {
 	}
 
 	public ProfileRepresentation createProfile(ProfileRequest profileRequest) {
+
 		Profile profile = new Profile(null, profileRequest.getName(), profileRequest.getDescription(),
-				profileRequest.getProfilePicture(), profileRequest.getEmail(), profileRequest.getPassword(),
+				"", profileRequest.getEmail(), profileRequest.getPassword(),
 				profileRequest.getMobilePhoneNumber(), AppBaseConstantsWeb.PROFILE_STATUS_PENDING,
 				profileRequest.getLatitude(), profileRequest.getLongitude(), AppBaseConstantsWeb.PROFILE_PRICEXHOUR_01,
 				AppBaseConstantsWeb.PROFILE_CATEGORY_01, profileRequest.getSkills(), AppBaseUtilsWeb.getCurrentTime());
 		profile = profileService.save(profile);
+		System.out.println("saving image");
+		AppBaseUtilsWeb.saveImageToServer(AppBaseUtilsWeb.decodeToImage(profileRequest.getProfilePicture()),
+				"" + profile.getProfileId());
 		return new ProfileRepresentation(profile);
 	}
 
