@@ -35,4 +35,9 @@ public class ProfileServiceImpl implements ProfileService {
 		return dao.remove(profile);
 	}
 
+	@Override
+	public Profile getProfileByPhoneNumber(String mobilePhoneNumber) {
+		return dao.getProfileByPhoneNumber(mobilePhoneNumber);
+	}
+
 }

@@ -11,6 +11,8 @@ public interface ProfileDao extends Dao {
 	public List<Profile> listAll();
 
 	public Profile getById(Long profileId);
+	
+	public Profile getProfileByPhoneNumber(String mobilePhoneNumber);
 
 	public boolean remove(Profile profile);
 }

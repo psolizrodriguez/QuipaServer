@@ -22,4 +22,6 @@ public interface ProfileWebService {
 
 	public Response uploadFile(List<Attachment> attachments, HttpServletRequest request);
 
+	public ProfileRepresentation profileLogin(String mobilePhoneNumber, String password);
+
 }

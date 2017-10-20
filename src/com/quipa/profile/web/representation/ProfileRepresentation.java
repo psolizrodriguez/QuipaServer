@@ -19,7 +19,6 @@ public class ProfileRepresentation {
 	private String description;
 	private String profilePicture;
 	private String email;
-	private String password;
 	private String mobilePhoneNumber;
 	private String status;
 	private Double latitude;
@@ -39,7 +38,6 @@ public class ProfileRepresentation {
 		this.description = profile.getDescription();
 		this.profilePicture = "http://" + AppBaseConstantsWeb.SERVER_URL + ":8080/QuipaServer/viewProfilePicture.html?profileId=" + profile.getProfileId();
 		this.email = profile.getEmail();
-		this.password = profile.getPassword();
 		this.mobilePhoneNumber = profile.getMobilePhoneNumber();
 		this.status = profile.getStatus();
 		this.latitude = profile.getLatitude();
@@ -88,14 +86,6 @@ public class ProfileRepresentation {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
 	}
 
 	public String getMobilePhoneNumber() {

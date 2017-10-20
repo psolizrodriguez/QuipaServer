@@ -12,4 +12,6 @@ public interface ProfileService {
 	public Profile getById(Long profileId);
 
 	public boolean remove(Profile profile);
+	
+	public Profile getProfileByPhoneNumber(String mobilePhoneNumber);
 }

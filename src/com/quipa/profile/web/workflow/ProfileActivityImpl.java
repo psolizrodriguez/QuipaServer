@@ -37,7 +37,7 @@ public class ProfileActivityImpl implements ProfileActivity {
 	public ProfileRepresentation createProfile(ProfileRequest profileRequest) {
 
 		Profile profile = new Profile(null, profileRequest.getName(), profileRequest.getDescription(),
-				"", profileRequest.getEmail(), profileRequest.getPassword(),
+				"", profileRequest.getEmail(), AppBaseUtilsWeb.encriptText(profileRequest.getPassword()),
 				profileRequest.getMobilePhoneNumber(), AppBaseConstantsWeb.PROFILE_STATUS_PENDING,
 				profileRequest.getLatitude(), profileRequest.getLongitude(), AppBaseConstantsWeb.PROFILE_PRICEXHOUR_01,
 				AppBaseConstantsWeb.PROFILE_CATEGORY_01, profileRequest.getSkills(), AppBaseUtilsWeb.getCurrentTime());
@@ -50,6 +50,16 @@ public class ProfileActivityImpl implements ProfileActivity {
 
 	public ProfileRepresentation getProfile(Long profileId) {
 		return new ProfileRepresentation(profileService.getById(profileId));
+	}
+
+	@Override
+	public ProfileRepresentation getProfileByPhoneNumber(String mobilePhoneNumber, String password) {
+		Profile profile = profileService.getProfileByPhoneNumber(mobilePhoneNumber);
+		ProfileRepresentation profileRepresentation = null;
+		if(profile != null && profile.getPassword().equals(AppBaseUtilsWeb.encriptText(password))) {
+			profileRepresentation = new ProfileRepresentation(profile);
+		}
+		return profileRepresentation;
 	}
 
 }

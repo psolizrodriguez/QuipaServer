@@ -9,6 +9,7 @@ import java.util.List;
 import javax.activation.DataHandler;
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -25,6 +26,7 @@ import org.springframework.stereotype.Component;
 
 import com.quipa.common.constants.AppBaseConstantsWeb;
 import com.quipa.common.utility.AppBaseUtilsWeb;
+import com.quipa.profile.web.representation.MessageRepresentation;
 import com.quipa.profile.web.representation.ProfileRepresentation;
 import com.quipa.profile.web.representation.ProfileRequest;
 import com.quipa.profile.web.workflow.ProfileActivityImpl;
@@ -83,6 +85,14 @@ public class ProfileResource implements ProfileWebService {
 		}
 
 		return Response.ok("file uploaded").build();
+	}
+	
+	@GET
+	@Produces({ "application/xml", "application/json" })
+	@Path("/profileLogin")
+	public ProfileRepresentation profileLogin(@FormParam("mobilePhoneNumber") String mobilePhoneNumber,@FormParam("password") String password) {
+		System.out.println("Verify User for " + mobilePhoneNumber);
+		return profileActivity.getProfileByPhoneNumber(mobilePhoneNumber, password);
 	}
 
 }

@@ -22,7 +22,7 @@ public class MainController {
 
 	@RequestMapping("/index")
 	public String index(HttpServletRequest request) {
-		Profile profile = new Profile(Long.valueOf(1), "Percy Soliz", "Software Engineer living in Chicago", "",
+		/*Profile profile = new Profile(Long.valueOf(1), "Percy Soliz", "Software Engineer living in Chicago", "",
 				"percy.soliz@gmail.com", "test1234", "333-333-3333", "Pending", 1000.0, 2000.0, 0.0, "", "",
 				AppBaseUtilsWeb.getCurrentTime());
 		profile = profileService.save(profile);
@@ -35,7 +35,7 @@ public class MainController {
 				25.0, 50.0, 5.0, 15.0, 70.0,"[1]", "Mechanic", "Nissan Z350 needs an oil change", "Pending", profile,
 				prospect);
 		workRequest = requestService.save(workRequest);
-		System.out.println("Kelly Blackwell Id = " + prospect.getProfileId());
+		System.out.println("Kelly Blackwell Id = " + prospect.getProfileId());*/
 		return "index";
 	}
 
