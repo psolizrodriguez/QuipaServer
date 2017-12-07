@@ -16,4 +16,5 @@ public interface MessageWebService {
 
 	public MessageRepresentation createMessage(MessageRequest messageRequest);
 
+	public List<MessageRepresentation> getMessagesByProfileId(Long profileId, String createdDate);
 }

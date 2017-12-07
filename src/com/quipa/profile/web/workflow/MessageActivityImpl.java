@@ -1,12 +1,14 @@
 package com.quipa.profile.web.workflow;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.quipa.common.constants.AppBaseConstantsWeb;
 import com.quipa.common.utility.AppBaseUtilsWeb;
 import com.quipa.model.profile.Message;
 import com.quipa.profile.web.representation.MessageRepresentation;
@@ -26,7 +28,6 @@ public class MessageActivityImpl implements MessageActivity {
 	private MessageService messageService;
 
 	public List<MessageRepresentation> getMessages(Long profileId) {
-
 		List<Message> messages = new ArrayList<>();
 		List<MessageRepresentation> messageRepresentations = new ArrayList<>();
 		messages = messageService.listAll(profileId);
@@ -49,6 +50,26 @@ public class MessageActivityImpl implements MessageActivity {
 
 	public MessageRepresentation getMessage(Long messageId) {
 		return new MessageRepresentation(messageService.getById(messageId));
+	}
+
+	@Override
+	public List<MessageRepresentation> getMessagesByProfileId(Long profileId, String createdDate) {
+		List<Message> messages = new ArrayList<>();
+		List<MessageRepresentation> messageRepresentations = new ArrayList<>();
+		if (createdDate == null) {
+			messages = messageService.listAllMessagesByProfileId(profileId);
+		} else {
+			Calendar lastUpdatedTime = AppBaseUtilsWeb.StringToCalendar(createdDate,
+					AppBaseConstantsWeb.DATETIME_FORMAT);
+			messages = messageService.listAllMessagesByProfileIdAndCreatedDate(profileId, lastUpdatedTime);
+		}
+		System.out.println(messages.size());
+		Iterator<Message> it = messages.iterator();
+		while (it.hasNext()) {
+			Message message = (Message) it.next();
+			messageRepresentations.add(new MessageRepresentation(message));
+		}
+		return messageRepresentations;
 	}
 
 }

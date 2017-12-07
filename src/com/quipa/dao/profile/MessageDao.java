@@ -1,5 +1,6 @@
 package com.quipa.dao.profile;
 
+import java.util.Calendar;
 import java.util.List;
 
 import com.quipa.common.dao.Dao;
@@ -13,4 +14,8 @@ public interface MessageDao extends Dao {
 	public Message getById(Long messageId);
 
 	public boolean remove(Message message);
+
+	public List<Message> listAllMessagesByProfileIdAndCreatedDate(Long profileId, Calendar createdDate);
+
+	public List<Message> listAllMessagesByProfileId(Long profileId);
 }

@@ -2,12 +2,12 @@ package com.quipa.profile.web.service;
 
 import java.util.List;
 
-import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -24,10 +24,19 @@ public class MessageResource implements MessageWebService {
 
 	@GET
 	@Produces({ "application/xml", "application/json" })
-	@Path("/message")
-	public List<MessageRepresentation> getMessages(@FormParam("requestId") Long requestId) {
+	@Path("/message/requestId/{requestId}")
+	public List<MessageRepresentation> getMessages(@PathParam("requestId") Long requestId) {
 		System.out.println("GET METHOD Message for all messages ............. , profileId = " + requestId);
 		return messageActivity.getMessages(requestId);
+	}
+
+	@GET
+	@Produces({ "application/xml", "application/json" })
+	@Path("/message/profileId/{profileId}")
+	public List<MessageRepresentation> getMessagesByProfileId(@PathParam("profileId") Long profileId,
+			@QueryParam("createdDate") String createdDate) {
+		System.out.println("GET METHOD Message for all messages ............. , profileId = " + profileId);
+		return messageActivity.getMessagesByProfileId(profileId, createdDate);
 	}
 
 	@GET

@@ -34,6 +34,14 @@ git pull QuipaServer master
 ## Entity Relationship Diagram
 ![Quipa_ERD](https://i.imgur.com/WL64gh4.png)
 
+## Available Endpoints
+### List all Messages by profileId and createdDate
+(GET)http://18.220.231.8/QuipaServer/services/messageservice/message/profileId/1?createdDate=12/06/17 00:00
+### List all Messages by profileId
+(GET)http://18.220.231.8/QuipaServer/services/messageservice/message/profileId/1
+### List all Messages by requestId
+(GET)http://18.220.231.8/QuipaServer/services/messageservice/message/requestId/92
+
 # DEV Week
 ## Pinky
 ![Imgur](https://i.imgur.com/kTLy1BR.png)

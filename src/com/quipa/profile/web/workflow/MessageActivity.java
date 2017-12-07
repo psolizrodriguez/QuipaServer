@@ -9,4 +9,6 @@ public interface MessageActivity {
 	public List<MessageRepresentation> getMessages(Long requestId);
 
 	public MessageRepresentation getMessage(Long messageId);
+
+	public List<MessageRepresentation> getMessagesByProfileId(Long profileId, String lastUpdatedTime);
 }

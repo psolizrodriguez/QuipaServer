@@ -1,5 +1,6 @@
 package com.quipa.dao.profile.impl;
 
+import java.util.Calendar;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
@@ -32,5 +33,15 @@ public class MessageDaoImpl extends AbstractBaseDao implements MessageDao {
 	@Override
 	public Message getById(Long messageId) {
 		return super.verifyNamedQueryAll("com.quipa.dao.profile.impl.MessageDaoImpl.getById", messageId);
+	}
+
+	@Override
+	public List<Message> listAllMessagesByProfileIdAndCreatedDate(Long profileId, Calendar createdDate) {
+		return super.verifyListNamedQueryAll("com.quipa.dao.profile.impl.MessageDaoImpl.listAllMessagesByProfileIdAndCreatedDate", profileId, createdDate);
+	}
+
+	@Override
+	public List<Message> listAllMessagesByProfileId(Long profileId) {
+		return super.verifyListNamedQueryAll("com.quipa.dao.profile.impl.MessageDaoImpl.listAllMessagesByProfileId", profileId);
 	}
 }

@@ -26,7 +26,6 @@ import org.springframework.stereotype.Component;
 
 import com.quipa.common.constants.AppBaseConstantsWeb;
 import com.quipa.common.utility.AppBaseUtilsWeb;
-import com.quipa.profile.web.representation.MessageRepresentation;
 import com.quipa.profile.web.representation.ProfileRepresentation;
 import com.quipa.profile.web.representation.ProfileRequest;
 import com.quipa.profile.web.workflow.ProfileActivityImpl;
@@ -70,7 +69,8 @@ public class ProfileResource implements ProfileWebService {
 			try {
 				InputStream stream = handler.getInputStream();
 				MultivaluedMap<String, String> map = attr.getHeaders();
-				OutputStream out = new FileOutputStream(new File(AppBaseConstantsWeb.IMAGES_PATH + AppBaseUtilsWeb.getFileName(map)));
+				OutputStream out = new FileOutputStream(
+						new File(AppBaseConstantsWeb.IMAGES_PATH + AppBaseUtilsWeb.getFileName(map)));
 				int read = 0;
 				byte[] bytes = new byte[1024];
 				while ((read = stream.read(bytes)) != -1) {
@@ -86,11 +86,12 @@ public class ProfileResource implements ProfileWebService {
 
 		return Response.ok("file uploaded").build();
 	}
-	
+
 	@GET
 	@Produces({ "application/xml", "application/json" })
 	@Path("/profileLogin")
-	public ProfileRepresentation profileLogin(@FormParam("mobilePhoneNumber") String mobilePhoneNumber,@FormParam("password") String password) {
+	public ProfileRepresentation profileLogin(@FormParam("mobilePhoneNumber") String mobilePhoneNumber,
+			@FormParam("password") String password) {
 		System.out.println("Verify User for " + mobilePhoneNumber);
 		return profileActivity.getProfileByPhoneNumber(mobilePhoneNumber, password);
 	}

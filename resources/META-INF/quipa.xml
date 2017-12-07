@@ -2,32 +2,31 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
                                    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<query
-		name="com.quipa.dao.profile.impl.ProfileDaoImpl.listAll">
+	<query name="com.quipa.dao.profile.impl.ProfileDaoImpl.listAll">
 		<![CDATA[FROM Profile]]>
 	</query>
-	<query
-		name="com.quipa.dao.profile.impl.ProfileDaoImpl.getById">
+	<query name="com.quipa.dao.profile.impl.ProfileDaoImpl.getById">
 		<![CDATA[FROM Profile WHERE profileId=?1]]>
 	</query>
-	<query
-		name="com.quipa.dao.profile.impl.ProfileDaoImpl.getProfileByPhoneNumber">
+	<query name="com.quipa.dao.profile.impl.ProfileDaoImpl.getProfileByPhoneNumber">
 		<![CDATA[FROM Profile WHERE mobilePhoneNumber=?1]]>
 	</query>
-	<query
-		name="com.quipa.dao.profile.impl.RequestDaoImpl.listAll">
+	<query name="com.quipa.dao.profile.impl.RequestDaoImpl.listAll">
 		<![CDATA[FROM Request WHERE profile.profileId=?1]]>
 	</query>
-	<query
-		name="com.quipa.dao.profile.impl.RequestDaoImpl.getById">
+	<query name="com.quipa.dao.profile.impl.RequestDaoImpl.getById">
 		<![CDATA[FROM Request WHERE requestId=?1]]>
 	</query>
-		<query
-		name="com.quipa.dao.profile.impl.MessageDaoImpl.listAll">
+	<query name="com.quipa.dao.profile.impl.MessageDaoImpl.listAll">
 		<![CDATA[FROM Message WHERE request.requestId=?1]]>
 	</query>
-	<query
-		name="com.quipa.dao.profile.impl.MessageDaoImpl.getById">
+	<query name="com.quipa.dao.profile.impl.MessageDaoImpl.getById">
 		<![CDATA[FROM Message WHERE messageId=?1]]>
+	</query>
+	<query name="com.quipa.dao.profile.impl.MessageDaoImpl.listAllMessagesByProfileIdAndCreatedDate">
+		<![CDATA[FROM Message m WHERE m.profile.profileId=?1 AND m.createdDate>?2 ORDER BY m.createdDate ASC]]>
+	</query>
+	<query name="com.quipa.dao.profile.impl.MessageDaoImpl.listAllMessagesByProfileId">
+		<![CDATA[FROM Message m WHERE m.profile.profileId=?1 ORDER BY m.createdDate ASC]]>
 	</query>
 </hibernate-mapping>

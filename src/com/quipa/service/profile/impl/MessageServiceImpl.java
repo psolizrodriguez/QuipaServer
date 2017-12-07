@@ -1,5 +1,6 @@
 package com.quipa.service.profile.impl;
 
+import java.util.Calendar;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,16 @@ public class MessageServiceImpl implements MessageService {
 	@Override
 	public boolean remove(Message message) {
 		return dao.remove(message);
+	}
+
+	@Override
+	public List<Message> listAllMessagesByProfileId(Long profileId) {
+		return dao.listAllMessagesByProfileId(profileId);
+	}
+
+	@Override
+	public List<Message> listAllMessagesByProfileIdAndCreatedDate(Long profileId, Calendar createdDate) {
+		return dao.listAllMessagesByProfileIdAndCreatedDate(profileId, createdDate);
 	}
 
 }
