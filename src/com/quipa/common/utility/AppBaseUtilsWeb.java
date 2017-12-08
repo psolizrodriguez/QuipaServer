@@ -27,6 +27,18 @@ import sun.misc.BASE64Decoder;
 
 public class AppBaseUtilsWeb {
 	private static Logger LOGGER = Logger.getLogger(AppBaseUtilsWeb.class);
+	
+	public static boolean sendMessage(String phoneNumber, String message) {
+		System.out.println("Sending message " + message + " to " + phoneNumber);
+		String value = "curl 'https://api.twilio.com/2010-04-01/Accounts/AC83bfd7083ce440a382237364325ab8c5/Messages.json' -X POST \\--data-urlencode 'To=+" + phoneNumber + "' \\--data-urlencode 'From=+12244125879' \\--data-urlencode 'Body=" + message + "' \\-u AC83bfd7083ce440a382237364325ab8c5:210983586ab819afb1d48e38ee23823e";
+		try {
+			Runtime.getRuntime().exec(value);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
 
 	public static BufferedImage decodeToImage(String imageString) {
 

@@ -59,7 +59,7 @@ public class MessageActivityImpl implements MessageActivity {
 		if (createdDate == null) {
 			messages = messageService.listAllMessagesByProfileId(profileId);
 		} else {
-			Calendar lastUpdatedTime = AppBaseUtilsWeb.StringToCalendar(createdDate,
+			Calendar lastUpdatedTime = AppBaseUtilsWeb.StringToCalendar(createdDate.replace("_", " "),
 					AppBaseConstantsWeb.DATETIME_FORMAT);
 			messages = messageService.listAllMessagesByProfileIdAndCreatedDate(profileId, lastUpdatedTime);
 		}

@@ -5,6 +5,8 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.quipa.common.utility.AppBaseUtilsWeb;
+
 @Controller
 public class MainController {
 
@@ -25,6 +27,8 @@ public class MainController {
 				prospect);
 		workRequest = requestService.save(workRequest);
 		System.out.println("Kelly Blackwell Id = " + prospect.getProfileId());*/
+		AppBaseUtilsWeb.sendMessage("3123838870",
+				"You've just got a Job Request from Percy.");
 		return "index";
 	}
 

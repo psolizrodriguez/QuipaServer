@@ -5,7 +5,7 @@ public class AppBaseConstantsWeb {
 	public static int BYTES_FOR_ENCRIPTION = 512;
 	public static String KEY_FOR_ENCRIPTION = "EBookStore";
 	public static String DATE_FORMAT = "MM/dd/yy";
-	public static String DATETIME_FORMAT = "MM/dd/yy HH:mm";
+	public static String DATETIME_FORMAT = "MM/dd/yy HH:mm:ss";
 	public static String SYSTEM_SEPARATOR = System.getProperty("file.separator");
 	public static String IMAGES_PATH = SYSTEM_SEPARATOR + "opt" + SYSTEM_SEPARATOR + "img" + SYSTEM_SEPARATOR;
 	public static String PROFILE_PICTURE_EXTENSION = ".png";

@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.quipa.common.utility.AppBaseUtilsWeb;
 import com.quipa.dao.profile.MessageDao;
 import com.quipa.model.profile.Message;
 import com.quipa.service.profile.MessageService;
