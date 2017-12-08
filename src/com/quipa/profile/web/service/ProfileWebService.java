@@ -24,4 +24,7 @@ public interface ProfileWebService {
 
 	public ProfileRepresentation profileLogin(String mobilePhoneNumber, String password);
 
+	public List<ProfileRepresentation> listAllByLatitudeAndLongitudeAndSkills(String skills, Double latitude,
+			Double longitude, Long profileId);
+
 }

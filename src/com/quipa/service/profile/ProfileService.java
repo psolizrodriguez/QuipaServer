@@ -8,6 +8,8 @@ public interface ProfileService {
 	public Profile save(Profile profile);
 
 	public List<Profile> listAll();
+	
+	public List<Profile> listAllByLatitudeAndLongitudeAndSkills(String skills, Double latitude, Double Longitude, Long profileId);
 
 	public Profile getById(Long profileId);
 

@@ -20,8 +20,8 @@ public class RequestServiceImpl implements RequestService {
 	}
 
 	@Override
-	public List<Request> listAll(Long profileId) {
-		return dao.listAll(profileId);
+	public List<Request> getRequestsByProfileId(Long profileId) {
+		return dao.getRequestsByProfileId(profileId);
 	}
 
 	@Override
@@ -32,6 +32,11 @@ public class RequestServiceImpl implements RequestService {
 	@Override
 	public boolean remove(Request request) {
 		return dao.remove(request);
+	}
+
+	@Override
+	public List<Request> getRequestsByProspectId(Long profileId) {
+		return dao.getRequestsByProspectId(profileId);
 	}
 
 }

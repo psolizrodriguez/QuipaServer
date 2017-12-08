@@ -40,4 +40,9 @@ public class ProfileServiceImpl implements ProfileService {
 		return dao.getProfileByPhoneNumber(mobilePhoneNumber);
 	}
 
+	@Override
+	public List<Profile> listAllByLatitudeAndLongitudeAndSkills(String skills, Double latitude, Double longitude, Long profileId) {
+		return dao.listAllByLatitudeAndLongitudeAndSkills(skills, latitude, longitude, profileId);
+	}
+
 }

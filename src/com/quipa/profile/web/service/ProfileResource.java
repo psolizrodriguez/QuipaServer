@@ -96,4 +96,13 @@ public class ProfileResource implements ProfileWebService {
 		return profileActivity.getProfileByPhoneNumber(mobilePhoneNumber, password);
 	}
 
+	@GET
+	@Produces({ "application/xml", "application/json" })
+	@Path("/profile/skills/{skills}/latitude/{latitude}/longitude/{longitude}/profileId/{profileId}")
+	public List<ProfileRepresentation> listAllByLatitudeAndLongitudeAndSkills(@PathParam("skills") String skills,
+			@PathParam("latitude") Double latitude, @PathParam("longitude") Double longitude,
+			@PathParam("profileId") Long profileId) {
+		return profileActivity.listAllByLatitudeAndLongitudeAndSkills(skills, latitude, longitude, profileId);
+	}
+
 }

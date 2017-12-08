@@ -41,6 +41,12 @@ git pull QuipaServer master
 (GET)http://18.220.231.8/QuipaServer/services/messageservice/message/profileId/1
 ### List all Messages by requestId
 (GET)http://18.220.231.8/QuipaServer/services/messageservice/message/requestId/92
+### Filter all Profiles by skill, latitude, longitude and profileId
+(GET)http://18.220.231.8/QuipaServer/services/profileservice/profile/skills/3/latitude/41.86461146667636/longitude/-87.62178923505415/profileId/1
+## List all requests by profileId (Hired)
+(GET)http://18.220.231.8/QuipaServer/services/requestservice/request/profileId/65
+## List all requests by prospectId (Job Requests)
+(GET)http://18.220.231.8/QuipaServer/services/requestservice/request/prospectId/67
 
 # DEV Week
 ## Pinky

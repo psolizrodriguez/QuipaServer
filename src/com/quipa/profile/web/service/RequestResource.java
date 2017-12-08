@@ -2,7 +2,6 @@ package com.quipa.profile.web.service;
 
 import java.util.List;
 
-import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -24,10 +23,18 @@ public class RequestResource implements RequestWebService {
 
 	@GET
 	@Produces({ "application/xml", "application/json" })
-	@Path("/request")
-	public List<RequestRepresentation> getRequests(@FormParam("profileId") Long profileId) {
+	@Path("/request/profileId/{profileId}")
+	public List<RequestRepresentation> getRequestsByProfileId(@PathParam("profileId") Long profileId) {
 		System.out.println("GET METHOD Request for all requests ............. , profileId = " + profileId);
-		return requestActivity.getRequests(profileId);
+		return requestActivity.getRequestsByProfileId(profileId);
+	}
+	
+	@GET
+	@Produces({ "application/xml", "application/json" })
+	@Path("/request/prospectId/{prospectId}")
+	public List<RequestRepresentation> getRequestsByProspectId(@PathParam("prospectId") Long prospectId) {
+		System.out.println("GET METHOD Request for all requests ............. , prospectId = " + prospectId);
+		return requestActivity.getRequestsByProspectId(prospectId);
 	}
 
 	@GET

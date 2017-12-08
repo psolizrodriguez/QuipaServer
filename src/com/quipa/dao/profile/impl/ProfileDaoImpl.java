@@ -36,8 +36,16 @@ public class ProfileDaoImpl extends AbstractBaseDao implements ProfileDao {
 
 	@Override
 	public Profile getProfileByPhoneNumber(String mobilePhoneNumber) {
-		return super.verifyNamedQueryAll("com.quipa.dao.profile.impl.ProfileDaoImpl.getProfileByPhoneNumber", mobilePhoneNumber);
+		return super.verifyNamedQueryAll("com.quipa.dao.profile.impl.ProfileDaoImpl.getProfileByPhoneNumber",
+				mobilePhoneNumber);
 	}
-	
-	
+
+	@Override
+	public List<Profile> listAllByLatitudeAndLongitudeAndSkills(String skills, Double latitude, Double longitude,
+			Long profileId) {
+		return super.verifyListNamedQueryAll(
+				"com.quipa.dao.profile.impl.ProfileDaoImpl.listAllByLatitudeAndLongitudeAndSkills", "%" + skills + "%",
+				latitude, longitude, profileId);
+	}
+
 }

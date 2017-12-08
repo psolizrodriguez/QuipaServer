@@ -12,4 +12,7 @@ public interface ProfileActivity {
 
 	public ProfileRepresentation getProfileByPhoneNumber(String mobilePhoneNumber, String password);
 
+	public List<ProfileRepresentation> listAllByLatitudeAndLongitudeAndSkills(String skills, Double latitude,
+			Double longitude, Long profileId);
+
 }

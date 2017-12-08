@@ -11,8 +11,11 @@
 	<query name="com.quipa.dao.profile.impl.ProfileDaoImpl.getProfileByPhoneNumber">
 		<![CDATA[FROM Profile WHERE mobilePhoneNumber=?1]]>
 	</query>
-	<query name="com.quipa.dao.profile.impl.RequestDaoImpl.listAll">
+	<query name="com.quipa.dao.profile.impl.RequestDaoImpl.getRequestsByProfileId">
 		<![CDATA[FROM Request WHERE profile.profileId=?1]]>
+	</query>
+		<query name="com.quipa.dao.profile.impl.RequestDaoImpl.getRequestsByProspectId">
+		<![CDATA[FROM Request WHERE prospect.profileId=?1]]>
 	</query>
 	<query name="com.quipa.dao.profile.impl.RequestDaoImpl.getById">
 		<![CDATA[FROM Request WHERE requestId=?1]]>
@@ -28,5 +31,8 @@
 	</query>
 	<query name="com.quipa.dao.profile.impl.MessageDaoImpl.listAllMessagesByProfileId">
 		<![CDATA[FROM Message m WHERE m.profile.profileId=?1 ORDER BY m.createdDate ASC]]>
+	</query>
+	<query name="com.quipa.dao.profile.impl.ProfileDaoImpl.listAllByLatitudeAndLongitudeAndSkills">
+		<![CDATA[FROM Profile WHERE profileId <> ?4 AND skills LIKE ?1 AND  ACOS(SIN(?2) * SIN(latitude) + COS(?2) * COS(latitude) * COS(longitude - (?3))) * 6371 <= 30 ORDER BY createdDate DESC LIMIT 10]]>
 	</query>
 </hibernate-mapping>

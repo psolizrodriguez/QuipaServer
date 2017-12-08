@@ -36,8 +36,8 @@ public class ProfileActivityImpl implements ProfileActivity {
 
 	public ProfileRepresentation createProfile(ProfileRequest profileRequest) {
 
-		Profile profile = new Profile(null, profileRequest.getName(), profileRequest.getDescription(),
-				"", profileRequest.getEmail(), AppBaseUtilsWeb.encriptText(profileRequest.getPassword()),
+		Profile profile = new Profile(null, profileRequest.getName(), profileRequest.getDescription(), "",
+				profileRequest.getEmail(), AppBaseUtilsWeb.encriptText(profileRequest.getPassword()),
 				profileRequest.getMobilePhoneNumber(), AppBaseConstantsWeb.PROFILE_STATUS_PENDING,
 				profileRequest.getLatitude(), profileRequest.getLongitude(), AppBaseConstantsWeb.PROFILE_PRICEXHOUR_01,
 				AppBaseConstantsWeb.PROFILE_CATEGORY_01, profileRequest.getSkills(), AppBaseUtilsWeb.getCurrentTime());
@@ -56,10 +56,24 @@ public class ProfileActivityImpl implements ProfileActivity {
 	public ProfileRepresentation getProfileByPhoneNumber(String mobilePhoneNumber, String password) {
 		Profile profile = profileService.getProfileByPhoneNumber(mobilePhoneNumber);
 		ProfileRepresentation profileRepresentation = null;
-		if(profile != null && profile.getPassword().equals(AppBaseUtilsWeb.encriptText(password))) {
+		if (profile != null && profile.getPassword().equals(AppBaseUtilsWeb.encriptText(password))) {
 			profileRepresentation = new ProfileRepresentation(profile);
 		}
 		return profileRepresentation;
+	}
+
+	@Override
+	public List<ProfileRepresentation> listAllByLatitudeAndLongitudeAndSkills(String skills, Double latitude,
+			Double longitude, Long profileId) {
+		List<Profile> profiles = new ArrayList<>();
+		List<ProfileRepresentation> profileRepresentations = new ArrayList<>();
+		profiles = profileService.listAllByLatitudeAndLongitudeAndSkills(skills, latitude, longitude, profileId);
+		Iterator<Profile> it = profiles.iterator();
+		while (it.hasNext()) {
+			Profile profile = (Profile) it.next();
+			profileRepresentations.add(new ProfileRepresentation(profile));
+		}
+		return profileRepresentations;
 	}
 
 }

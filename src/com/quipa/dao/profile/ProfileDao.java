@@ -15,4 +15,7 @@ public interface ProfileDao extends Dao {
 	public Profile getProfileByPhoneNumber(String mobilePhoneNumber);
 
 	public boolean remove(Profile profile);
+	
+	public List<Profile> listAllByLatitudeAndLongitudeAndSkills(String skills, Double latitude, Double Longitude,
+			Long profileId);
 }

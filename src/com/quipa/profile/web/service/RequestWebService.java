@@ -10,7 +10,9 @@ import com.quipa.profile.web.representation.RequestRequest;
 @WebService
 public interface RequestWebService {
 
-	public List<RequestRepresentation> getRequests(Long profileId);
+	public List<RequestRepresentation> getRequestsByProfileId(Long profileId);
+
+	public List<RequestRepresentation> getRequestsByProspectId(Long prospectId);
 
 	public RequestRepresentation getRequest(Long requestId);
 
