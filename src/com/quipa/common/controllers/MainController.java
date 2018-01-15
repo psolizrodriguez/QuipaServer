@@ -27,8 +27,8 @@ public class MainController {
 				prospect);
 		workRequest = requestService.save(workRequest);
 		System.out.println("Kelly Blackwell Id = " + prospect.getProfileId());*/
-		AppBaseUtilsWeb.sendMessage("3123838870",
-				"You've just got a Job Request from Percy.");
+		/*AppBaseUtilsWeb.sendMessage("3123838870",
+				"You've just got a Job Request from Percy.");*/
 		return "index";
 	}
 
