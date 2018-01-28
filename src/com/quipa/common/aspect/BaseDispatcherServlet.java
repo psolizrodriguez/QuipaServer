@@ -1,10 +1,14 @@
 package com.quipa.common.aspect;
 
+import java.net.InetAddress;
+
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 
 import org.apache.log4j.Logger;
 import org.springframework.web.servlet.DispatcherServlet;
+
+import com.quipa.common.constants.AppBaseConstantsWeb;
 
 public class BaseDispatcherServlet extends DispatcherServlet {
 
@@ -20,6 +24,7 @@ public class BaseDispatcherServlet extends DispatcherServlet {
 		try {
 			if (Logger.getLogger(BaseDispatcherServlet.class) == null) {
 				System.out.println("Logger is Null...");
+				AppBaseConstantsWeb.SERVER_URL = InetAddress.getLocalHost().getHostName();
 			} else {
 				System.out.println("Logger is Initialized....");
 			}
